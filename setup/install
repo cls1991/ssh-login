@@ -23,7 +23,7 @@ if [ $? -ne 0 ]; then
     BACKUPFILE=${USERCONF}"_sshlogin_backup"    
     cp $USERCONF $BACKUPFILE
     echo "# configure sshlogin begin" >> $USERCONF
-    echo "export PATH=\$PATH:$SHELLPATH/../bin" >> $USERCONF
+    echo "export PATH=$SHELLPATH/../bin:\$PATH" >> $USERCONF
     echo "# configure sshlogin end" >> $USERCONF
     source $USERCONF
 else
