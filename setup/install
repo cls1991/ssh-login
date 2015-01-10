@@ -1,0 +1,31 @@
+#!/bin/sh
+
+PLATFORM=`uname`
+set USERCONF ~/.bashrc
+
+#Linux
+if [ "$PLATFORM"x = "Linux"x ]; then
+	# default
+    :
+#Mac OSX
+elif [ "$PLATFORM"x = "Darwin"x ]; then
+	# change value of USERCONF
+	USERCONF=~/.bash_profile
+else
+	#do nothing
+    :
+fi
+
+# backup conf and begin configure
+grep -q "sshlogin" $USERCONF
+if [ $? -ne 0 ]; then
+    SHELLPATH=$(pwd)
+    BACKUPFILE=${USERCONF}"_sshlogin_backup"    
+    cp $USERCONF $BACKUPFILE
+    echo "# configure sshlogin begin" >> $USERCONF
+    echo "export PATH=\$PATH:$SHELLPATH/../bin" >> $USERCONF
+    echo "# configure sshlogin end" >> $USERCONF
+    source $USERCONF
+else
+    :
+fi
