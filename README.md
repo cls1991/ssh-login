@@ -4,15 +4,15 @@
 
 #####2.support most Linux Release, Max OSX, Unix
 ## install
-#####1.check out project
+#####1.modify sshlogin file, config your own username and password for ssh login
 
-#####2.cd project/setup
+#####2.check out project
 
-#####3.execute install
+#####3.cd project/setup
 
-#####4.cd project/bin
+#####4.execute install
 
-#####5.modify sshlogin file, config your own username and password for ssh login
+#####5.cd project/bin
 
 #####Bingo, now you can simply type command sshlogin to login your remote server through ssh.
 
